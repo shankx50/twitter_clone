@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
+  get 'tweets/index'
+
+  get 'tweets/show'
+
+  get 'tweets/edit'
+
+  get 'tweets/new'
+
+  get 'tweets/_form'
+
+  resources :tweets
+
   devise_for :users
 
-  root to: 'home#index'
+  root 'tweets#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
