@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+
+  get "profiles/:id" => "profiles#show", as: :profile
+
+  get "profiles" => "profiles#index"
+
   get 'tweets/index'
 
   get 'tweets/show'
@@ -9,7 +15,10 @@ Rails.application.routes.draw do
 
   get 'tweets/_form'
 
-  resources :tweets
+  resources :tweets do
+    resource :like
+  end
+  resources :relationships
 
   devise_for :users
 
